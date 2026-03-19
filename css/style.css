@@ -1,0 +1,81 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+  padding: 40px;
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+/* Contenedor */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Card */
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto hover */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Línea decorativa arriba */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+/* Título de la materia */
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* Descripción */
+.card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Botón volver */
+a[href*="index"] {
+  display: inline-block;
+  margin-top: 40px;
+  text-decoration: none;
+  color: #4facfe;
+  font-weight: bold;
+}
