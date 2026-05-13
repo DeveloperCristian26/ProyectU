@@ -44,7 +44,7 @@ if (loginForm) {
         alert("Login exitoso");
 
         window.location.href =
-          "/dashboard.html";
+          "/index.html";
 
       } else {
 
