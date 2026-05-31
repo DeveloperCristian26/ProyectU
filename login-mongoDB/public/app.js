@@ -41,8 +41,6 @@ if (loginForm) {
           data.token
         );
 
-        alert("Login exitoso");
-
         window.location.href =
           "/index.html";
 
