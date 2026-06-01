@@ -31,16 +31,71 @@
 
 <script>
 
-const token =
-  localStorage.getItem("token");
+    const token =
+        localStorage.getItem("token");
 
-if (!token) {
+    if (!token) {
 
-  window.location.href =
-    "/login.html";
+        window.location.href =
+            "/login.html";
 
+    }
+
+
+function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const chatBox = document.getElementById("chatBox");
+
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  chatBox.innerHTML += `<div><b>Tú:</b> ${msg}</div>`;
+
+  const response = getBotResponse(msg);
+
+  setTimeout(() => {
+    chatBox.innerHTML += `<div><b>👨‍🏫 Tutor:</b> ${response}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 400);
+
+  input.value = "";
 }
 
+function getBotResponse(message) {
+  message = message.toLowerCase();
+
+  if (message.includes("html")) {
+    return "HTML es el lenguaje base para crear páginas web. Usa etiquetas como <div>, <p> y <h1>.";
+  }
+
+  if (message.includes("css")) {
+    return "CSS sirve para dar estilo a las páginas web como colores, tamaños y posiciones.";
+  }
+
+  if (message.includes("javascript")) {
+    return "JavaScript permite que tu página sea interactiva, como botones o formularios dinámicos.";
+  }
+
+  if (message.includes("excel")) {
+    return "Excel avanzado incluye funciones como SI, BUSCARV y tablas dinámicas.";
+  }
+
+  if (message.includes("marketing")) {
+    return "El marketing digital se basa en promocionar productos usando redes sociales y estrategias online.";
+  }
+
+  return "No estoy seguro, pero intenta preguntar sobre HTML, CSS, JavaScript, Excel o marketing 😊";
+}
+
+function toggleChat() {
+  const chat = document.getElementById("chatContainer");
+
+  if (chat.style.display === "none") {
+    chat.style.display = "flex";
+  } else {
+    chat.style.display = "none";
+  }
+}
 </script>
 
 
@@ -60,7 +115,6 @@ if (!token) {
                     <a href="index.html" class="nav-item nav-link active">Inicio</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="class.html" class="nav-item nav-link">Clases</a>
-                    <a href="team.html" class="nav-item nav-link">Profesores</a>
                     <a href="gallery.html" class="nav-item nav-link">Galería</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
@@ -71,7 +125,9 @@ if (!token) {
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contacto</a>
                 </div>
-                <a href="" class="btn btn-primary px-4">Inscribirse</a>
+                <a href="" class="btn btn-primary px-4" id="userBtn">
+                    Inscribirse
+                </a>
             </div>
         </nav>
     </div>
@@ -106,7 +162,8 @@ if (!token) {
                         <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
                             <h4>Play Ground</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet
+                                elitr vero...</p>
                         </div>
                     </div>
                 </div>
@@ -115,7 +172,8 @@ if (!token) {
                         <i class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
                             <h4>Music and Dance</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet
+                                elitr vero...</p>
                         </div>
                     </div>
                 </div>
@@ -124,7 +182,8 @@ if (!token) {
                         <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
                             <h4>Arts and Crafts</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet
+                                elitr vero...</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +192,8 @@ if (!token) {
                         <i class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
                             <h4>Safe Transportation</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet
+                                elitr vero...</p>
                         </div>
                     </div>
                 </div>
@@ -142,7 +202,8 @@ if (!token) {
                         <i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
                             <h4>Healthy food</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet
+                                elitr vero...</p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +212,8 @@ if (!token) {
                         <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
                             <h4>Educational Tour</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet
+                                elitr vero...</p>
                         </div>
                     </div>
                 </div>
@@ -180,9 +242,12 @@ if (!token) {
                         </div>
                         <div class="col-6 col-md-8">
                             <ul class="list-inline m-0">
-                                <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
-                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
-                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
+                                <li class="py-2 border-top border-bottom"><i
+                                        class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit
+                                    dolor amet ipsum</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Diam dolor
+                                    diam elitripsum vero.</li>
                             </ul>
                         </div>
                     </div>
@@ -207,7 +272,8 @@ if (!token) {
                         <img class="card-img-top mb-2" src="img/class-1.jpg" alt="">
                         <div class="card-body text-center">
                             <h4 class="card-title">Drawing Class</h4>
-                            <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo et no et, ipsum ipsum erat duo amet clita duo</p>
+                            <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo
+                                et no et, ipsum ipsum erat duo amet clita duo</p>
                         </div>
                         <div class="card-footer bg-transparent py-4 px-5">
                             <div class="row border-bottom">
@@ -222,7 +288,7 @@ if (!token) {
                                 <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
                                 <div class="col-6 py-1">08:00 - 10:00</div>
                             </div>
-                           
+
                         </div>
                         <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
                     </div>
@@ -232,7 +298,8 @@ if (!token) {
                         <img class="card-img-top mb-2" src="img/class-2.jpg" alt="">
                         <div class="card-body text-center">
                             <h4 class="card-title">Language Learning</h4>
-                            <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo et no et, ipsum ipsum erat duo amet clita duo</p>
+                            <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo
+                                et no et, ipsum ipsum erat duo amet clita duo</p>
                         </div>
                         <div class="card-footer bg-transparent py-4 px-5">
                             <div class="row border-bottom">
@@ -247,7 +314,7 @@ if (!token) {
                                 <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
                                 <div class="col-6 py-1">08:00 - 10:00</div>
                             </div>
-                            
+
                         </div>
                         <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
                     </div>
@@ -257,7 +324,8 @@ if (!token) {
                         <img class="card-img-top mb-2" src="img/class-3.jpg" alt="">
                         <div class="card-body text-center">
                             <h4 class="card-title">Basic Science</h4>
-                            <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo et no et, ipsum ipsum erat duo amet clita duo</p>
+                            <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo
+                                et no et, ipsum ipsum erat duo amet clita duo</p>
                         </div>
                         <div class="card-footer bg-transparent py-4 px-5">
                             <div class="row border-bottom">
@@ -272,7 +340,7 @@ if (!token) {
                                 <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
                                 <div class="col-6 py-1">08:00 - 10:00</div>
                             </div>
-                           
+
                         </div>
                         <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
                     </div>
@@ -281,13 +349,6 @@ if (!token) {
         </div>
     </div>
     <!-- Class End -->
-
-
-   
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
 
     <!-- Blog Start -->
     <div class="container-fluid pt-5">
@@ -307,7 +368,8 @@ if (!token) {
                                 <small class="mr-3"><i class="fa fa-folder text-primary"></i> Web Design</small>
                                 <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small>
                             </div>
-                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
+                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod
+                                kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
                             <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
                         </div>
                     </div>
@@ -322,7 +384,8 @@ if (!token) {
                                 <small class="mr-3"><i class="fa fa-folder text-primary"></i> Web Design</small>
                                 <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small>
                             </div>
-                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
+                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod
+                                kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
                             <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
                         </div>
                     </div>
@@ -337,7 +400,8 @@ if (!token) {
                                 <small class="mr-3"><i class="fa fa-folder text-primary"></i> Web Design</small>
                                 <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small>
                             </div>
-                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
+                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod
+                                kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
                             <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
                         </div>
                     </div>
@@ -350,13 +414,16 @@ if (!token) {
 
     <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
-        <div class="row pt-5">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px;">
+        <div class="row pt-5 no-gutters text-center text-md-left">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
+                    style="font-size: 40px; line-height: 40px;">
                     <i class="flaticon-043-teddy-bear"></i>
-                    <span class="text-white">KidKinder</span>
+                    <span class="text-white">FreeStudia</span>
                 </a>
-                <p>Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet elitr stet diam duo eos rebum ipsum diam ipsum elitr.</p>
+                <p class="mr-5">Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea dolor et magna dolor,
+                    elitr rebum
+                    duo est sed diam elitr. Stet elitr stet diam duo eos rebum ipsum diam ipsum elitr.</p>
                 <div class="d-flex justify-content-start mt-4">
                     <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
                         style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
@@ -368,7 +435,9 @@ if (!token) {
                         style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5">
+
+
+            <div class="col-lg-4 col-md-6 mb-5">
                 <h3 class="text-primary mb-4">Get In Touch</h3>
                 <div class="d-flex">
                     <h4 class="fa fa-map-marker-alt text-primary"></h4>
@@ -392,44 +461,40 @@ if (!token) {
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5">
                 <h3 class="text-primary mb-4">Quick Links</h3>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
                     <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
                     <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Classes</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Teachers</a>
                     <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Blog</a>
                     <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h3 class="text-primary mb-4">Newsletter</h3>
-                <form action="">
-                    <div class="form-group">
-                        <input type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control border-0 py-4" placeholder="Your Email"
-                            required="required" />
-                    </div>
-                    <div>
-                        <button class="btn btn-primary btn-block border-0 py-3" type="submit">Submit Now</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, .2);;">
-            <p class="m-0 text-center text-white">
-                &copy; <a class="text-primary font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed
-                by
-                <a class="text-primary font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
-            </p>
+
+
         </div>
     </div>
     <!-- Footer End -->
+<!-- Botón burbuja -->
+<div id="chatBubble" onclick="toggleChat()">
+  💬
+</div>
 
+<!-- Ventana del chat -->
+<div id="chatContainer" class="hidden">
+  <div id="chatHeader">
+    🤖 Tutor FreeStudia
+    <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
+  </div>
 
+  <div id="chatBox"></div>
+
+  <div id="chatInputBox">
+    <input id="chatInput" placeholder="Escribe tu duda..." />
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
@@ -446,8 +511,26 @@ if (!token) {
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        // puntos (temporalmente en localStorage)
+        let points = localStorage.getItem("points");
+
+        if (!points) {
+            points = 0;
+            localStorage.setItem("points", points);
+        }
+
+        if (user && user.username) {
+            document.getElementById("userBtn").innerHTML = `
+    <div style="display:flex; flex-direction:column; line-height:1.2;">
+      <span>${user.username}</span>
+      <small style="font-size:12px; opacity:0.8;">⭐ ${points} puntos</small>
+    </div>
+  `;
+        }
+    </script>
 </body>
 
 </html>

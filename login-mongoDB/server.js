@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const chatRoute = require("./routes/chat");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -15,7 +15,7 @@ app.use(express.static("public"));
 
 // Rutas
 app.use("/api/auth", authRoutes);
-
+app.use("/api/ai", chatRoute);
 // Conexión a MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

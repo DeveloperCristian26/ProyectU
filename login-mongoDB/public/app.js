@@ -36,20 +36,16 @@ if (loginForm) {
 
       if (data.token) {
 
-        localStorage.setItem(
-          "token",
-          data.token
-        );
+        localStorage.setItem("token", data.token);
 
-        window.location.href =
-          "/index.html";
+        // ✅ AÑADE ESTO
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        window.location.href = "/index.html";
 
       } else {
-
         alert(data.message);
-
       }
-
     }
   );
 
