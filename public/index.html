@@ -150,7 +150,7 @@
                     fácil y entretenido.</p>
                 <!-- <a href="" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a> -->
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
+            <div class="col-lg-6 text-center text-lg-right d-none d-lg-block">
                 <img class="img-fluid mt-6 m-5" src="img/header.png" alt="">
             </div>
         </div>
@@ -531,10 +531,10 @@
 
     <script>
         const user = JSON.parse(localStorage.getItem("user"));
-let points = localStorage.getItem("points") || 0;
+        let points = localStorage.getItem("points") || 0;
 
-if (user && user.username) {
-  document.getElementById("userBtn").outerHTML = `
+        if (user && user.username) {
+            document.getElementById("userBtn").outerHTML = `
     <div class="btn-group">
       <button class="btn btn-primary">
         ${user.username} ⭐ ${points}
@@ -544,66 +544,66 @@ if (user && user.username) {
       </button>
     </div>
   `;
-}
+        }
     </script>
     <!-- CHATBASE START -->
-<script>
-(function(){
-  if(!window.chatbase||window.chatbase("getState")!=="initialized"){
-    window.chatbase=(...arguments)=>{
-      if(!window.chatbase.q){
-        window.chatbase.q=[]
-      }
-      window.chatbase.q.push(arguments)
-    };
-    window.chatbase=new Proxy(window.chatbase,{
-      get(target,prop){
-        if(prop==="q"){
-          return target.q
-        }
-        return(...args)=>target(prop,...args)
-      }
-    })
-  }
+    <script>
+        (function () {
+            if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+                window.chatbase = (...arguments) => {
+                    if (!window.chatbase.q) {
+                        window.chatbase.q = []
+                    }
+                    window.chatbase.q.push(arguments)
+                };
+                window.chatbase = new Proxy(window.chatbase, {
+                    get(target, prop) {
+                        if (prop === "q") {
+                            return target.q
+                        }
+                        return (...args) => target(prop, ...args)
+                    }
+                })
+            }
 
-  const onLoad=function(){
-    const script=document.createElement("script");
-    script.src="https://www.chatbase.co/embed.min.js";
-    script.id="eX8c4XJbna8mOszafwDQQ";
-    script.domain="www.chatbase.co";
-    document.body.appendChild(script);
+            const onLoad = function () {
+                const script = document.createElement("script");
+                script.src = "https://www.chatbase.co/embed.min.js";
+                script.id = "eX8c4XJbna8mOszafwDQQ";
+                script.domain = "www.chatbase.co";
+                document.body.appendChild(script);
 
-    // 👇 AQUÍ SE CONECTA EL USUARIO
-    const user = JSON.parse(localStorage.getItem("user"));
+                // 👇 AQUÍ SE CONECTA EL USUARIO
+                const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
-      window.chatbase("setUserData", {
-        name: user.username,
-        userId: user.id || user.username
-      });
-    }
+                if (user) {
+                    window.chatbase("setUserData", {
+                        name: user.username,
+                        userId: user.id || user.username
+                    });
+                }
 
-  };
+            };
 
-  if(document.readyState==="complete"){
-    onLoad()
-  } else {
-    window.addEventListener("load",onLoad)
-  }
-})();
-</script>
-<!-- CHATBASE END -->
- <script>
-window.logout = function () {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+            if (document.readyState === "complete") {
+                onLoad()
+            } else {
+                window.addEventListener("load", onLoad)
+            }
+        })();
+    </script>
+    <!-- CHATBASE END -->
+    <script>
+        window.logout = function () {
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
 
-  // opcional: limpiar puntos si quieres reset total
-  // localStorage.removeItem("points");
+            // opcional: limpiar puntos si quieres reset total
+            // localStorage.removeItem("points");
 
-  window.location.href = "/login.html";
-};
-</script>
+            window.location.href = "/login.html";
+        };
+    </script>
 </body>
 
 </html>

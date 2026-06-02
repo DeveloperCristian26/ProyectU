@@ -20,28 +20,17 @@ if (loginForm) {
 
     const data = await res.json();
 
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+if (!res.ok) {
+  alert(data.message);
+  return;
+}
 
-      // ==========================
-      // 🎯 PUNTOS LOGIN DIARIO
-      // ==========================
-      const hoy = new Date().toDateString();
-      const ultimoLogin = localStorage.getItem("ultimoLogin");
+if (data.token) {
+  localStorage.setItem("token", data.token);
+  localStorage.setItem("user", JSON.stringify(data.user));
 
-      let puntos = parseInt(localStorage.getItem("points")) || 0;
-
-      if (ultimoLogin !== hoy) {
-        puntos += 5;
-        localStorage.setItem("points", puntos);
-        localStorage.setItem("ultimoLogin", hoy);
-      }
-
-      window.location.href = "/index.html";
-    } else {
-      alert("Credenciales incorrectas");
-    }
+  window.location.href = "/index.html";
+}
   });
 }
 
