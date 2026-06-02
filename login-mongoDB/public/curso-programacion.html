@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>FreeStudia - Fundamentos de Programación</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link href="WhatsApp Image 2026-06-01 at 3.57.12 PM.jpeg" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<script>
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "/login.html";
+    }
+</script>
+
+<body>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+
+           <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="WhatsApp Image 2026-06-01 at 3.57.12 PM.jpeg" alt="FreeStudia Logo"
+                    style="height: 90px; width: auto; object-fit: contain;">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="class.html" class="nav-item nav-link active">Cursos</a>
+                    <a href="blog.html" class="nav-item nav-link">Recursos</a>
+                    <a href="contact.html" class="nav-item nav-link">Soporte</a>
+                </div>
+
+                <a href="#" class="btn btn-primary px-4" id="userBtn">
+                    Iniciar sesión
+                </a>
+
+            </div>
+
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 350px;">
+
+            <h1 class="display-4 font-weight-bold text-white text-center">
+                Fundamentos de Programación
+            </h1>
+
+            <p class="text-white text-center">
+                Aprende desde cero los conceptos más importantes de la programación.
+            </p>
+
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Curso Start -->
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2>📚 Curso Completo</h2>
+            <p>
+                Completa las lecciones y gana puntos para desbloquear nuevos cursos.
+            </p>
+        </div>
+
+        <!-- LECCIÓN 1 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+
+                <h3>Lección 1: ¿Qué es Programar?</h3>
+
+                <p>
+                    Programar consiste en escribir instrucciones para que una computadora
+                    realice tareas específicas.
+                </p>
+
+                <p>
+                    Los programas están formados por algoritmos y pasos lógicos.
+                </p>
+
+                <div class="form-group">
+                    <label>
+                        Escribe con tus palabras qué significa programar:
+                    </label>
+
+                    <textarea class="form-control" id="respuesta1" rows="4"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LECCIÓN 2 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+
+                <h3>Lección 2: Variables</h3>
+
+                <p>
+                    Una variable sirve para almacenar información.
+                </p>
+
+                <p>
+                    Ejemplo:
+                </p>
+
+                <pre>
+let nombre = "Juan";
+let edad = 20;
+</pre>
+
+                <div class="form-group">
+                    <label>
+                        Crea una variable llamada ciudad:
+                    </label>
+
+                    <textarea class="form-control" id="respuesta2" rows="4"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LECCIÓN 3 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+
+                <h3>Lección 3: Condicionales</h3>
+
+                <p>
+                    Los condicionales permiten tomar decisiones.
+                </p>
+
+                <pre>
+if(edad >= 18){
+   console.log("Mayor de edad");
+}
+</pre>
+
+                <div class="form-group">
+                    <label>
+                        Escribe un ejemplo de condicional:
+                    </label>
+
+                    <textarea class="form-control" id="respuesta3" rows="4"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LECCIÓN 4 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 4: Variables</h3>
+
+                <p>
+                    Las variables permiten almacenar información.
+                </p>
+
+                <pre>
+let nombre = "Juan";
+let edad = 20;
+        </pre>
+
+                <textarea class="form-control mb-3" rows="3"
+                    placeholder="Escribe una variable llamada ciudad"></textarea>
+
+                <button class="btn btn-primary" onclick="completarLeccion(4)">
+                    Completar lección (+10 pts)
+                </button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 5 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 5: Condicionales</h3>
+
+                <p>
+                    Permiten tomar decisiones.
+                </p>
+
+                <pre>
+if(edad >= 18){
+   console.log("Mayor");
+}
+        </pre>
+
+                <textarea class="form-control mb-3" rows="3" placeholder="Escribe un ejemplo usando if"></textarea>
+
+                <button class="btn btn-primary" onclick="completarLeccion(5)">
+                    Completar lección (+10 pts)
+                </button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 6 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 6: Bucles</h3>
+
+                <p>
+                    Los bucles repiten instrucciones.
+                </p>
+
+                <pre>
+for(let i=0;i<5;i++){
+ console.log(i);
+}
+        </pre>
+
+                <textarea class="form-control mb-3" rows="3" placeholder="Escribe un bucle for"></textarea>
+
+                <button class="btn btn-primary" onclick="completarLeccion(6)">
+                    Completar lección (+10 pts)
+                </button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 7 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 7: Funciones</h3>
+
+                <p>
+                    Las funciones agrupan código reutilizable.
+                </p>
+
+                <pre>
+function saludar(){
+   alert("Hola");
+}
+        </pre>
+
+                <textarea class="form-control mb-3" rows="3" placeholder="Crea una función llamada sumar"></textarea>
+
+                <button class="btn btn-primary" onclick="completarLeccion(7)">
+                    Completar lección (+10 pts)
+                </button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 8 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 8: Arrays</h3>
+
+                <p>
+                    Los arrays almacenan varios datos.
+                </p>
+
+                <pre>
+let frutas = ["Manzana","Pera","Uva"];
+        </pre>
+
+                <textarea class="form-control mb-3" rows="3" placeholder="Crea un array de colores"></textarea>
+
+                <button class="btn btn-primary" onclick="completarLeccion(8)">
+                    Completar lección (+10 pts)
+                </button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 9 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 9: Objetos</h3>
+
+                <p>
+                    Los objetos almacenan propiedades.
+                </p>
+
+                <pre>
+let usuario = {
+ nombre:"Juan",
+ edad:20
+};
+        </pre>
+
+                <textarea class="form-control mb-3" rows="3" placeholder="Crea un objeto estudiante"></textarea>
+
+                <button class="btn btn-primary" onclick="completarLeccion(9)">
+                    Completar lección (+10 pts)
+                </button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 10 -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <h3>Lección 10: Proyecto Final</h3>
+
+                <p>
+                    Crea una mini aplicación usando lo aprendido.
+                </p>
+
+                <textarea class="form-control mb-3" rows="5" placeholder="Describe tu proyecto"></textarea>
+
+                <button class="btn btn-success" onclick="completarLeccion(10)">
+                    Finalizar Curso (+50 pts)
+                </button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5 no-gutters text-center text-md-left">
+
+            <div class="col-lg-4 col-md-6 mb-5">
+                <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size:40px;">
+                    <span class="text-white">FreeStudia</span>
+                </a>
+
+                <p>
+                    Plataforma educativa impulsada por IA.
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">
+                    Contacto
+                </h3>
+
+                <p>
+                    Email: makengolee@gmail.com
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">
+                    Cursos
+                </h3>
+
+                <p>Programación</p>
+                <p>Excel</p>
+                <p>Marketing</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        let points =
+            parseInt(localStorage.getItem("points")) || 0;
+
+        if (user && user.username) {
+
+            document.getElementById("userBtn").innerHTML =
+                `
+<div style="display:flex;flex-direction:column;">
+<span>${user.username}</span>
+<small>⭐ ${points} puntos</small>
+</div>
+`;
+
+        }
+
+        function completarLeccion(numero) {
+
+            let completadas =
+                JSON.parse(
+                    localStorage.getItem("leccionesCompletadas")
+                ) || [];
+
+            if (completadas.includes(numero)) {
+
+                alert("Ya completaste esta lección");
+                return;
+
+            }
+
+            completadas.push(numero);
+
+            localStorage.setItem(
+                "leccionesCompletadas",
+                JSON.stringify(completadas)
+            );
+
+            let recompensa = 10;
+
+            if (numero === 10) {
+                recompensa = 50;
+            }
+
+            points += recompensa;
+
+            localStorage.setItem(
+                "points",
+                points
+            );
+
+            alert(
+                `¡Ganaste ${recompensa} puntos!`
+            );
+
+            location.reload();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

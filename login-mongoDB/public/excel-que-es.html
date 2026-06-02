@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Excel para Productividad - FreeStudia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- Navbar Start -->
+<div class="container-fluid bg-light position-relative shadow">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img src="WhatsApp Image 2026-06-01 at 3.57.12 PM.jpeg" alt="FreeStudia Logo"
+                style="height: 90px; width: auto; object-fit: contain;">
+        </a>
+
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Inicio</a>
+                <a href="class.html" class="nav-item nav-link">Cursos</a>
+                <a href="blog.html" class="nav-item nav-link active">Recursos</a>
+                <a href="contact.html" class="nav-item nav-link">Soporte</a>
+            </div>
+
+            <a href="" class="btn btn-primary px-4" id="userBtn">
+                Iniciar sesión
+            </a>
+
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<!-- HEADER -->
+<div class="container-fluid bg-primary text-white text-center py-5">
+    <h1>Excel para Productividad</h1>
+    <p>Domina hojas de cálculo desde cero</p>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container py-5">
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>¿Qué es Excel?</h3>
+        <p>
+            Excel es una herramienta de Microsoft que permite organizar, analizar y visualizar datos mediante hojas de cálculo.
+            Es muy usado en empresas, negocios y educación.
+        </p>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>¿Para qué sirve Excel?</h3>
+        <ul>
+            <li>Organizar datos</li>
+            <li>Hacer cálculos automáticos</li>
+            <li>Crear tablas y gráficos</li>
+            <li>Analizar información empresarial</li>
+        </ul>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Conceptos básicos</h3>
+        <ul>
+            <li>Filas y columnas</li>
+            <li>Celdas (A1, B2, C3)</li>
+            <li>Fórmulas</li>
+            <li>Funciones</li>
+        </ul>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Fórmulas básicas</h3>
+
+        <ul>
+            <li>=SUMA(A1:A10)</li>
+            <li>=PROMEDIO(B1:B10)</li>
+            <li>=MAX(C1:C10)</li>
+            <li>=MIN(D1:D10)</li>
+        </ul>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Ejemplo práctico</h3>
+
+        <pre>
+A1: 10
+A2: 20
+A3: 30
+
+=SUMA(A1:A3) → 60
+        </pre>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Uso en la vida real</h3>
+        <ul>
+            <li>Contabilidad</li>
+            <li>Inventarios</li>
+            <li>Notas de estudiantes</li>
+            <li>Presupuestos personales</li>
+        </ul>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="blog.html" class="btn btn-primary px-4">
+            Volver a recursos
+        </a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="container-fluid bg-dark text-white text-center py-4 mt-5">
+    <p class="m-0">FreeStudia - Aprende programación y herramientas digitales</p>
+</div>
+
+<!-- USER SCRIPT -->
+<script>
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    let points = localStorage.getItem("points");
+
+    if (!points) {
+        points = 0;
+        localStorage.setItem("points", points);
+    }
+
+    if (user && user.username) {
+        document.getElementById("userBtn").innerHTML = `
+        <div style="display:flex; flex-direction:column; line-height:1.2;">
+            <span>${user.username}</span>
+            <small style="font-size:12px; opacity:0.8;">⭐ ${points} puntos</small>
+        </div>
+        `;
+    }
+</script>
+
+</body>
+</html>

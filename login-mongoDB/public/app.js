@@ -1,101 +1,92 @@
+// ==========================
 // LOGIN
-const loginForm =
-  document.getElementById("loginForm");
+// ==========================
+const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  loginForm.addEventListener(
-    "submit",
-    async (e) => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-      e.preventDefault();
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password })
+    });
 
-      const email =
-        document.getElementById("email").value;
+    const data = await res.json();
 
-      const password =
-        document.getElementById("password").value;
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
-      const res = await fetch(
-        "/api/auth/login",
-        {
-          method: "POST",
+      // ==========================
+      // 🎯 PUNTOS LOGIN DIARIO
+      // ==========================
+      const hoy = new Date().toDateString();
+      const ultimoLogin = localStorage.getItem("ultimoLogin");
 
-          headers: {
-            "Content-Type": "application/json"
-          },
+      let puntos = parseInt(localStorage.getItem("points")) || 0;
 
-          body: JSON.stringify({
-            email,
-            password
-          })
-        }
-      );
-
-      const data = await res.json();
-
-      if (data.token) {
-
-        localStorage.setItem("token", data.token);
-
-        // ✅ AÑADE ESTO
-        localStorage.setItem("user", JSON.stringify(data.user));
-
-        window.location.href = "/index.html";
-
-      } else {
-        alert(data.message);
+      if (ultimoLogin !== hoy) {
+        puntos += 5;
+        localStorage.setItem("points", puntos);
+        localStorage.setItem("ultimoLogin", hoy);
       }
-    }
-  );
 
+      window.location.href = "/index.html";
+    } else {
+      alert("Credenciales incorrectas");
+    }
+  });
 }
 
 
-
-// REGISTRO
-const registerForm =
-  document.getElementById("registerForm");
+// ==========================
+// REGISTRO (CORREGIDO)
+// ==========================
+const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  registerForm.addEventListener(
-    "submit",
-    async (e) => {
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-      e.preventDefault();
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password })
+    });
 
-      const username =
-        document.getElementById("username").value;
+    const data = await res.json();
 
-      const email =
-        document.getElementById("email").value;
+    alert(data.message);
 
-      const password =
-        document.getElementById("password").value;
-
-      const res = await fetch(
-        "/api/auth/register",
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type": "application/json"
-          },
-
-          body: JSON.stringify({
-            username,
-            email,
-            password
-          })
-        }
-      );
-
-      const data = await res.json();
-
-      alert(data.message);
-
+    if (res.ok) {
+      window.location.href = "/login.html";
     }
-  );
-
+  });
 }
+
+
+// ==========================
+// USUARIO
+// ==========================
+const user = JSON.parse(localStorage.getItem("user"));
+
+
+// ==========================
+// LOGOUT (CORRECTO)
+// ==========================
+window.logout = function () {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.href = "/login.html";
+};

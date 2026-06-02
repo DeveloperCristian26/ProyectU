@@ -1,61 +1,40 @@
 const express = require("express");
 const router = express.Router();
 const OpenAI = require("openai");
-const ChatHistory = require("../models/ChatHistory");
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: "https://router.huggingface.co/v1",
+  apiKey: process.env.HF_TOKEN,
 });
 
 router.post("/", async (req, res) => {
   try {
-    const { message, userId } = req.body;
+    const { message } = req.body;
 
-    // 1. Buscar historial del usuario
-    let history = await ChatHistory.findOne({ userId });
-
-    if (!history) {
-      history = new ChatHistory({ userId, messages: [] });
-    }
-
-    // 2. Agregar mensaje del usuario
-    history.messages.push({
-      role: "user",
-      content: message,
-    });
-
-    // 3. Crear contexto para IA
-    const response = await client.chat.completions.create({
-      model: "gpt-4o-mini",
+    const completion = await client.chat.completions.create({
+      model: "moonshotai/Kimi-K2-Instruct-0905",
       messages: [
         {
           role: "system",
-          content:
-            "Eres FreeStudia AI, un tutor experto en programación, Excel y marketing. Explicas de forma simple para estudiantes de grado 11. Eres amable, educativo y motivador.",
+          content: "Eres un tutor educativo de programación para estudiantes de grado 11 en FreeStudia.",
         },
-        ...history.messages.slice(-10), // memoria corta
+        {
+          role: "user",
+          content: message,
+        },
       ],
     });
 
-    const reply = response.choices[0].message.content;
+    const reply = completion.choices[0].message.content;
 
-    // 4. Guardar respuesta IA
-    history.messages.push({
-      role: "assistant",
-      content: reply,
-    });
+    res.json({ reply });
 
-    // 5. Sistema de puntos básico
-    history.points += 5;
-
-    await history.save();
-
-    res.json({
-      reply,
-      points: history.points,
-    });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+
+    res.status(500).json({
+      reply: "Lo siento, hubo un error en la IA.",
+    });
   }
 });
 

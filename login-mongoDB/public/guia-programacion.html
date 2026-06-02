@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>FreeStudia | Guía de Programación</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap + estilos -->
+   <link rel="shortcut icon" href="WhatsApp Image 2026-06-01 at 3.57.12 PM.jpeg" type="image/x-icon">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+ <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+
+           <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="WhatsApp Image 2026-06-01 at 3.57.12 PM.jpeg" alt="FreeStudia Logo"
+                    style="height: 90px; width: auto; object-fit: contain;">
+            </a>
+
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+                <!-- LINKS -->
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="class.html" class="nav-item nav-link active">Cursos</a>
+                    <a href="blog.html" class="nav-item nav-link">recursos</a>
+                    <a href="contact.html" class="nav-item nav-link">Soporte</a>
+                </div>
+
+                <!-- BOTÓN USUARIO -->
+                <a href="" class="btn btn-primary px-4" id="userBtn">
+                    Iniciar sesión
+                </a>
+
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+<!-- HEADER -->
+<div class="container-fluid bg-primary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="text-white font-weight-bold"> Guía de Programación</h1>
+    <p class="text-white">Introducción a HTML, CSS y JavaScript</p>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="mb-5">
+    <h2>¿Qué es la programación?</h2>
+    <p>
+      La programación es el proceso de crear instrucciones que una computadora puede entender y ejecutar.
+      Estas instrucciones se escriben usando lenguajes como <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>.
+    </p>
+  </div>
+
+ <!-- HTML -->
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h3> HTML (Estructura)</h3>
+
+    <p>
+      HTML (HyperText Markup Language) es el lenguaje base de toda página web.
+      Su función principal es definir la estructura y el contenido.
+    </p>
+
+    <h5> ¿Para qué sirve HTML?</h5>
+    <ul>
+      <li>Crear la estructura de páginas web</li>
+      <li>Definir textos, imágenes y enlaces</li>
+      <li>Organizar el contenido en secciones</li>
+    </ul>
+
+    <h5> Estructura básica de HTML</h5>
+    <p>Todo documento HTML sigue esta estructura:</p>
+
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Mi página&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;h1&gt;Hola mundo&lt;/h1&gt;
+    &lt;p&gt;Este es un párrafo&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <h5> Etiquetas importantes</h5>
+    <ul>
+      <li><strong>&lt;h1&gt; - &lt;h6&gt;</strong>: títulos</li>
+      <li><strong>&lt;p&gt;</strong>: párrafos</li>
+      <li><strong>&lt;a&gt;</strong>: enlaces</li>
+      <li><strong>&lt;img&gt;</strong>: imágenes</li>
+      <li><strong>&lt;div&gt;</strong>: contenedor general</li>
+      <li><strong>&lt;span&gt;</strong>: texto en línea</li>
+    </ul>
+
+    <h5> Ejemplo de enlace</h5>
+    <pre>
+&lt;a href="https://google.com"&gt;Ir a Google&lt;/a&gt;
+    </pre>
+
+    <h5> Ejemplo de imagen</h5>
+    <pre>
+&lt;img src="imagen.jpg" alt="Descripción"&gt;
+    </pre>
+
+    <h5> Consejo</h5>
+    <p>
+      HTML no programa lógica, solo estructura. Siempre se combina con CSS y JavaScript.
+    </p>
+
+  </div>
+</div>
+
+  <!-- CSS -->
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h3> CSS (Diseño y Estilo)</h3>
+
+    <p>
+      CSS (Cascading Style Sheets) es el lenguaje que se usa para dar estilo a las páginas web.
+      Permite cambiar colores, tamaños, posiciones y hacer que la web sea visualmente atractiva.
+    </p>
+
+    <h5>¿Para qué sirve CSS?</h5>
+    <ul>
+      <li>Dar colores y estilos a la página</li>
+      <li>Organizar el diseño (layout)</li>
+      <li>Crear animaciones y efectos</li>
+      <li>Hacer la web responsive (adaptable a celular)</li>
+    </ul>
+
+    <h5> Formas de usar CSS</h5>
+    <ul>
+      <li><strong>Inline:</strong> dentro del HTML</li>
+      <li><strong>Interno:</strong> dentro de &lt;style&gt;</li>
+      <li><strong>Externo:</strong> archivo .css (recomendado)</li>
+    </ul>
+
+    <h5> Ejemplo básico de CSS</h5>
+    <pre>
+h1 {
+  color: blue;
+  font-size: 40px;
+}
+
+p {
+  color: gray;
+  font-family: Arial;
+}
+    </pre>
+
+    <h5> Propiedades importantes</h5>
+    <ul>
+      <li><strong>color</strong>: cambia el color del texto</li>
+      <li><strong>background-color</strong>: color de fondo</li>
+      <li><strong>font-size</strong>: tamaño del texto</li>
+      <li><strong>margin</strong>: espacio exterior</li>
+      <li><strong>padding</strong>: espacio interior</li>
+      <li><strong>border</strong>: bordes</li>
+    </ul>
+
+    <h5>Ejemplo de caja (box model)</h5>
+    <pre>
+div {
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid black;
+}
+    </pre>
+
+    <h5> Diseño responsive</h5>
+    <p>
+      CSS permite que una página se adapte a celulares usando media queries:
+    </p>
+
+    <pre>
+@media (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+    </pre>
+
+    <h5>Consejo</h5>
+    <p>
+      CSS es lo que convierte una página simple en una web profesional.
+      Sin CSS, todo se vería plano y sin diseño.
+    </p>
+
+  </div>
+</div>
+
+  <!-- JAVASCRIPT -->
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h3>JavaScript (Interactividad y Lógica)</h3>
+
+    <p>
+      JavaScript es el lenguaje que permite que una página web sea interactiva.
+      Gracias a él puedes crear botones que responden, formularios dinámicos y aplicaciones completas.
+    </p>
+
+    <h5>¿Para qué sirve JavaScript?</h5>
+    <ul>
+      <li>Hacer páginas interactivas</li>
+      <li>Responder a botones y eventos</li>
+      <li>Validar formularios</li>
+      <li>Crear juegos y aplicaciones web</li>
+    </ul>
+
+    <h5>Ejemplo básico</h5>
+    <pre>
+&lt;script&gt;
+  alert("Hola mundo");
+&lt;/script&gt;
+    </pre>
+
+    <h5>Variables</h5>
+    <p>Las variables guardan información:</p>
+
+    <pre>
+let nombre = "Juan";
+let edad = 20;
+    </pre>
+
+    <h5>Condiciones (if)</h5>
+    <p>Sirven para tomar decisiones:</p>
+
+    <pre>
+let edad = 18;
+
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+} else {
+  console.log("Eres menor de edad");
+}
+    </pre>
+
+    <h5>Funciones</h5>
+    <p>Las funciones permiten reutilizar código:</p>
+
+    <pre>
+function saludar(nombre) {
+  return "Hola " + nombre;
+}
+
+console.log(saludar("Ana"));
+    </pre>
+
+    <h5>Eventos</h5>
+    <p>JavaScript responde a acciones del usuario:</p>
+
+    <pre>
+&lt;button onclick="saludar()"&gt;Click&lt;/button&gt;
+
+&lt;script&gt;
+function saludar() {
+  alert("Hola");
+}
+&lt;/script&gt;
+    </pre>
+
+    <h5>Manipular HTML</h5>
+    <p>JavaScript puede cambiar la página:</p>
+
+    <pre>
+document.getElementById("titulo").innerHTML = "Nuevo texto";
+    </pre>
+
+    <h5>Conclusión</h5>
+    <p>
+      JavaScript es el cerebro de la web.  
+      HTML estructura la página, CSS la diseña y JavaScript la hace funcional e interactiva.
+    </p>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+  <div class="text-center">
+    <h5>FreeStudia</h5>
+    <p>Plataforma educativa con aprendizaje moderno</p>
+  </div>
+</div>
+
+<!-- USER SCRIPT -->
+<script>
+  const user = JSON.parse(localStorage.getItem("user"));
+  const points = localStorage.getItem("points") || 0;
+
+  if (user && user.username) {
+    document.getElementById("userBtn").innerHTML = `
+      <div style="display:flex; flex-direction:column; line-height:1.2;">
+        <span>${user.username}</span>
+        <small style="font-size:12px;">⭐ ${points} pts</small>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>

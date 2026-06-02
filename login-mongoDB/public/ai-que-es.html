@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cómo usar la IA para estudiar - FreeStudia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- Navbar Start -->
+<div class="container-fluid bg-light position-relative shadow">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img src="WhatsApp Image 2026-06-01 at 3.57.12 PM.jpeg" alt="FreeStudia Logo"
+                style="height: 90px; width: auto; object-fit: contain;">
+        </a>
+
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Inicio</a>
+                <a href="class.html" class="nav-item nav-link">Cursos</a>
+                <a href="blog.html" class="nav-item nav-link active">Recursos</a>
+                <a href="contact.html" class="nav-item nav-link">Soporte</a>
+            </div>
+
+            <a href="" class="btn btn-primary px-4" id="userBtn">
+                Iniciar sesión
+            </a>
+
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<!-- HEADER -->
+<div class="container-fluid bg-primary text-white text-center py-5">
+    <h1>Cómo usar la IA para estudiar mejor</h1>
+    <p>Aprende más rápido con inteligencia artificial</p>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container py-5">
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>¿Qué es la inteligencia artificial?</h3>
+        <p>
+            La inteligencia artificial (IA) es una tecnología que permite a las máquinas aprender,
+            analizar información y ayudar a los humanos en tareas como estudiar, escribir o resolver problemas.
+        </p>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>¿Cómo te ayuda la IA a estudiar?</h3>
+        <ul>
+            <li>Explica temas difíciles de forma sencilla</li>
+            <li>Responde preguntas al instante</li>
+            <li>Genera ejercicios para practicar</li>
+            <li>Resume textos largos</li>
+            <li>Te ayuda a repasar para exámenes</li>
+        </ul>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Formas de estudiar con IA</h3>
+        <ul>
+            <li>Pedir explicaciones paso a paso</li>
+            <li>Crear cuestionarios personalizados</li>
+            <li>Practicar con simulaciones de examen</li>
+            <li>Aprender con ejemplos reales</li>
+        </ul>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Ejemplos de uso</h3>
+        <ul>
+            <li>“Explícame JavaScript como si fuera principiante”</li>
+            <li>“Hazme un examen de HTML”</li>
+            <li>“Resume este texto en puntos clave”</li>
+        </ul>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+        <h3>Consejos importantes</h3>
+        <ul>
+            <li>No copies sin entender</li>
+            <li>Practica todos los días</li>
+            <li>Haz preguntas específicas</li>
+            <li>Usa la IA como apoyo, no reemplazo</li>
+        </ul>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="blog.html" class="btn btn-primary px-4">
+            Volver a recursos
+        </a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="container-fluid bg-dark text-white text-center py-4 mt-5">
+    <p class="m-0">FreeStudia - Aprende con inteligencia artificial</p>
+</div>
+
+<!-- USER SCRIPT -->
+<script>
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    let points = localStorage.getItem("points");
+
+    if (!points) {
+        points = 0;
+        localStorage.setItem("points", points);
+    }
+
+    if (user && user.username) {
+        document.getElementById("userBtn").innerHTML = `
+        <div style="display:flex; flex-direction:column; line-height:1.2;">
+            <span>${user.username}</span>
+            <small style="font-size:12px; opacity:0.8;">⭐ ${points} puntos</small>
+        </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
